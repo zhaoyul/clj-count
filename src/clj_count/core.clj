@@ -91,7 +91,8 @@
        :children
        (map doc-strings)
        (filter vector?)
-       count
+       (mapv count)
+       (reduce +)
        ))
 
 (defn rich-comment-node?
@@ -169,7 +170,7 @@
 
 
 (comment
-  (let [file (io/file "/Users/kevinli/sandbox/rc/device_sensor/backend/src/clj/device_sensor/socket/codec/416/cmd_mock.clj")]
+  (let [file (io/file "../device_sensor/backend/src/clj/device_sensor/socket/tcp.clj")]
     [(src-lins file)
      (src-space-lines file)
      (src-comment-lines file)
